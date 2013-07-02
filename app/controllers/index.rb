@@ -1,3 +1,10 @@
+get '/jeffreytest' do
+  @somethings = %w(foo bar baz qux)
+  erb :multi, :layout => false
+end
+
+
+
 get '/' do
   @games = Game.order(:seconds_taken_for_victory)
   erb :index
@@ -38,6 +45,8 @@ end
 post "/game/end" do
   game = Game.find(params[:game_id])
   player = Player.find_by_name(params[:winner_name])
-  game.update_attributes(winner_id: player.id, seconds_taken_for_victory: params[:elapsed_time])
+  game.update_attributes(winner_id: player.id,
+                         seconds_taken_for_victory: params[:elapsed_time],
+                         is_finished: params[:is_finished])
   redirect "/"
 end

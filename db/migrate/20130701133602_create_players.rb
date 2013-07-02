@@ -8,6 +8,7 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :games do |t|
       t.integer :winner_id
       t.integer :seconds_taken_for_victory
+      t.boolean :is_finished, default: false
       t.timestamps
     end
 

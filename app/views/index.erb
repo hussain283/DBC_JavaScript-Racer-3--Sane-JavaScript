@@ -7,8 +7,11 @@
   </form>
   <ul>
   <% @games.each do |game| %>
-  
-  <li><%= game.winner.name %> : <%= game.seconds_taken_for_victory %> Milliseconds</li>
+  <% if game.is_finished %>
+    <li>
+      <%= game.winner.name %> : <%= game.seconds_taken_for_victory %> Milliseconds
+    </li>
+  <% end %>
   <% end %>
   </ul>
 </div>
