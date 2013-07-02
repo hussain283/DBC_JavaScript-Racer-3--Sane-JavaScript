@@ -1,0 +1,20 @@
+<div class="container">
+  
+  <% unless @player.errors.blank? %>
+    <p style="color:red"><%= @player.errors.full_messages %></p>
+  <% end %>
+
+  <form id="add_player" action="/game/<%= @game.id %>/player/create" method="post">
+    <input type="text" name="player[name]" placeholder="Enter Your Name">
+    <input type="submit" value="Add Player">
+  </form>
+
+   <form id="start_game" action="/game/<%= @game.id %>/start" method="get">
+    <input type="submit" value="Start Game">
+  </form>
+
+  <h3>List of Players in the game</h3>
+  <% @game.players.each do |player| %>
+    <p><%= player.name %></p>
+  <% end %>
+</div>

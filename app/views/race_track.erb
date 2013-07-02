@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Start Your Engines!</h1>
+  
+  <br>
+
+  <table class="racer_table" data-id="<%= @game.id %>">
+    <% @game.players.each do |player| %>
+    <tr id="<%= player.name %>">
+      <% 12.times do %>
+        <td></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+
+  <h1 class="winner"></h1>
+
+  <a href="/">Back To Home</a>
+</div>
